@@ -1,0 +1,23 @@
+.homelink {
+    text-decoration: none;
+    color: white;
+}
+
+.logoIco {
+    color: #69f0ae;
+    margin: 0 .5rem;
+}
+
+.fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+}
+
+.mat-icon {
+    font-size: 100%;
+}
+
+mat-form-field.mat-form-field {
+    font-size: 16px;
+}
