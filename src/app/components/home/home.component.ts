@@ -13,17 +13,28 @@ import { PopuralesPage, Movie, OriginalLanguage } from '../../common/interfaces/
 export class HomeComponent implements OnInit {
 
   listMovies: Movie[];
+  listPopulares: Movie[];
+  listCartelera: Movie[];
 
   constructor( private movieSrv: PeliculasService ) {
     this.movieSrv.getPopulares().subscribe( (request: PopuralesPage) => {
       console.log(request);
-      if (request.results.length > 0 ){
-        this.listMovies = request.results;
+      if (request.results.length > 0 ) {
+        this.listPopulares  = request.results;
+        this.listMovies = this.listPopulares;
+      }
+    });
+
+    this.movieSrv.getCartelera().subscribe( (request: PopuralesPage) => {
+      console.log(request);
+      if (request.results.length > 0 ) {
+        this.listCartelera  = request.results;
       }
     });
   }
 
   ngOnInit(): void {
   }
+
 
 }
