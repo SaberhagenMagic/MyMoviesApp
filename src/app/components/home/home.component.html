@@ -1,6 +1,21 @@
-<mat-card>
-    <mat-card-title>Titulo</mat-card-title>
-    <mat-card-content>
-        Contenido
-    </mat-card-content>
-</mat-card>
+<div class="container">
+
+    <div *ngIf="listMovies && listMovies.length > 0">
+        <mat-card *ngFor="let mov of listMovies" class="movie-card">
+            <mat-card-header>
+                <mat-card-title>{{ mov.title }}</mat-card-title>
+                <mat-card-subtitle>{{ mov.release_date | date : 'yyyy' }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="http://image.tmdb.org/t/p/w300{{ mov.backdrop_path }}" alt="{{ mov.original_title }}">
+            <mat-card-content>
+                <b>Sinopsis:</b>
+                <p>{{ mov.overview }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>ME GUSTA</button>
+                <button mat-button>COMPARTIR</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+</div>

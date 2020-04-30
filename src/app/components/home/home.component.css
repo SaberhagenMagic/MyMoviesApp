@@ -1,0 +1,5 @@
+.movie-card {
+    display: inline-block;
+    max-width: 355px;
+    margin: 5px;
+}
