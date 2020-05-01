@@ -14,21 +14,29 @@ export class HomeComponent implements OnInit {
 
   listMovies: Movie[];
   listPopulares: Movie[];
+  listNinos: Movie[];
   listCartelera: Movie[];
 
   constructor( private movieSrv: PeliculasService ) {
-    this.movieSrv.getPopulares().subscribe( (request: PopuralesPage) => {
+    this.movieSrv.getPopulares().subscribe( (request: any) => {
       console.log(request);
-      if (request.results.length > 0 ) {
-        this.listPopulares  = request.results;
+      if (request.length > 0 ) {
+        this.listPopulares  = request;
         this.listMovies = this.listPopulares;
       }
     });
 
-    this.movieSrv.getCartelera().subscribe( (request: PopuralesPage) => {
+    this.movieSrv.getPopularesNinos().subscribe( (request: any) => {
       console.log(request);
-      if (request.results.length > 0 ) {
-        this.listCartelera  = request.results;
+      if (request.length > 0 ) {
+        this.listNinos  = request;
+      }
+    });
+
+    this.movieSrv.getCartelera().subscribe( (request: any) => {
+      console.log(request);
+      if (request.length > 0 ) {
+        this.listCartelera  = request;
       }
     });
   }
@@ -36,5 +44,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  setNinos() {
+    this.listMovies = this.listNinos;
+  }
 
 }

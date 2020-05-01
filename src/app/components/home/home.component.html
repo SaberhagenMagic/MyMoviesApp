@@ -1,5 +1,6 @@
 <mat-toolbar>
     <button mat-button color="primary" class="active">Populares</button>
+    <button mat-button color="primary" (click)="setNinos">Infantiles</button>
     <button mat-button color="primary">Cartelera</button>
 </mat-toolbar>
 <div class="container">
@@ -10,7 +11,7 @@
                 <mat-card-title>{{ mov.title }}</mat-card-title>
                 <mat-card-subtitle>{{ mov.release_date | date : 'yyyy' }}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="http://image.tmdb.org/t/p/w300{{ mov.backdrop_path }}" alt="{{ mov.original_title }}">
+            <img mat-card-image src="{{ mov | peliculaImagen }}" alt="{{ mov.original_title }}">
             <mat-card-content>
                 <b>Sinopsis:</b>
                 <p>{{ mov.overview }}</p>

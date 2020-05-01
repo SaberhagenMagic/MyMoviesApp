@@ -1,0 +1,11 @@
+<div class="container">
+
+    <form class="form">
+        <mat-form-field appearance="fill">
+            <mat-label>Buscar pelicula</mat-label>
+            <input matInput name="txtBuscar" placeholder="Escribir nombre" [(ngModel)]="buscar" (keyup.enter)="buscaPelicula()">
+            <mat-icon matSuffix fontSet="fas" fontIcon="fa-search"></mat-icon>
+        </mat-form-field>
+    </form>
+
+</div>
